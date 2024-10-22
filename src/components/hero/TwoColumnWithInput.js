@@ -53,12 +53,13 @@ export default ({ roundedHeaderButton }) => {
         <TwoColumn>
           <LeftColumn>
             <Heading>
-              Beautiful React Templatos{" "}
-              <span tw="text-primary-500">for you.</span>
+              Transformamos tus ideas en
+              <span tw="text-primary-500"> soluciones tecnológicas.</span>
             </Heading>
             <Paragraph>
-              Our templates are easy to setup, understand and customize. Fully
-              modular components with a variety of pages and components.
+              En EncioSystems, somos expertos en el desarrollo de soluciones
+              innovadoras en web, aplicaciones móviles, aplicaciones de
+              escritorio, y consultoría de software.
             </Paragraph>
             <Actions>
               <input type="text" placeholder="Your E-mail Address" />
