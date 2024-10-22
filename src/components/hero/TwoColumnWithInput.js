@@ -66,7 +66,7 @@ export default ({ roundedHeaderButton }) => {
               <button>Contactanos</button>
             </Actions>
             <CustomersLogoStrip>
-              <p>Our TRUSTED Customers</p>
+              <p>Nuestros clientes de confianza</p>
               <img src={CustomersLogoStripImage} alt="Our Customers" />
             </CustomersLogoStrip>
           </LeftColumn>
