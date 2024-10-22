@@ -62,8 +62,8 @@ export default ({ roundedHeaderButton }) => {
               escritorio, y consultoría de software.
             </Paragraph>
             <Actions>
-              <input type="text" placeholder="Your E-mail Address" />
-              <button>Get Started</button>
+              <input type="text" placeholder="Inserta tu correo electrónico" />
+              <button>Contactanos</button>
             </Actions>
             <CustomersLogoStrip>
               <p>Our TRUSTED Customers</p>
