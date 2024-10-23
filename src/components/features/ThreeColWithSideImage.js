@@ -109,7 +109,7 @@ export default ({
       imageSrc: SimpleIconImage,
       title: "Facilidad",
       description:
-        "Diseñamos interfaces simples y amigables que facilitan la experiencia del usuario.",
+        "Diseñamos interfaces simples y amigables que facilitan la experiencia del usuario0.",
     },
   ];
 

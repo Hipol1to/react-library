@@ -35,16 +35,16 @@ export default () => {
         }
       />
       <MainFeature
-        subheading={<Subheading>Quality Work</Subheading>}
+        subheading={<Subheading>TRABAJO DE CALIDAD</Subheading>}
         imageSrc={heroScreenshotImageSrc}
         imageBorder={true}
         imageDecoratorBlob={true}
       />
       <FeatureWithSteps
-        subheading={<Subheading>STEPS</Subheading>}
+        subheading={<Subheading>PASOS A SEGUIR</Subheading>}
         heading={
           <>
-            Easy to <HighlightedText>Get Started.</HighlightedText>
+            Solicita tu <HighlightedText>Producto.</HighlightedText>
           </>
         }
         textOnLeft={false}

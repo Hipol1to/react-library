@@ -63,7 +63,7 @@ export default ({ roundedHeaderButton }) => {
             </Paragraph>
             <Actions>
               <input type="text" placeholder="Inserta tu correo electrónico" />
-              <button>Contactanos</button>
+              <button>Contáctanos</button>
             </Actions>
             <CustomersLogoStrip>
               <p>Nuestros clientes de confianza</p>
