@@ -78,19 +78,39 @@ export default ({
   const defaultCards = [
     {
       imageSrc: ShieldIconImage,
-      title: "Seguridad Total",
+      title: "Seguridad",
       description: "Garantizamos la máxima protección para tus proyectos.",
     },
     {
       imageSrc: SupportIconImage,
-      title: "Soporte Continuo",
+      title: "Soporte",
       description:
-        "Brinda asistencia y covertura contra incidentes considerando los riesgos de tu proyecto.",
+        "Brindamos asistencia y covertura contra incidentes considerando los riesgos de tu proyecto.",
     },
-    { imageSrc: CustomizeIconImage, title: "Customizable" },
-    { imageSrc: ReliableIconImage, title: "Reliable" },
-    { imageSrc: FastIconImage, title: "Fast" },
-    { imageSrc: SimpleIconImage, title: "Easy" },
+    {
+      imageSrc: CustomizeIconImage,
+      title: "Flexibilidad",
+      description:
+        "Desarrollamos soluciones a medida ajustandose a los objetivos específicos de tu negocio.",
+    },
+    {
+      imageSrc: ReliableIconImage,
+      title: "Estabilidad",
+      description:
+        "Nuestras soluciones ofrecen un funcionamiento confiable en todo momento.",
+    },
+    {
+      imageSrc: FastIconImage,
+      title: "Rendimiento",
+      description:
+        "Optimizamos cada solución para garantizar un alto rendimiento, maximizando la productividad.",
+    },
+    {
+      imageSrc: SimpleIconImage,
+      title: "Facilidad",
+      description:
+        "Diseñamos interfaces simples y amigables que facilitan la experiencia del usuario.",
+    },
   ];
 
   if (!cards) cards = defaultCards;

@@ -296,8 +296,8 @@ module.exports = {
       base: "1rem",
       lg: "1.125rem",
       xl: "1.25rem",
-      //Aqui se cambia el texto de los features de la segunda seccion
-      "2xl": "1.4rem",
+      //Aqui se cambia el texto de los features de la segunda seccion (abajo)
+      "2xl": "1.5rem",
       "3xl": "1.875rem",
       "4xl": "2.25rem",
       "5xl": "3rem",
