@@ -26,10 +26,11 @@ export default () => {
     <AnimationRevealPage>
       <Hero roundedHeaderButton={true} />
       <Features
-        subheading={<Subheading>Features</Subheading>}
+        subheading={<Subheading>Nuestras Soluciones</Subheading>}
         heading={
           <>
-            We have Amazing <HighlightedText>Service.</HighlightedText>
+            Ofrecemos un Servicio{" "}
+            <HighlightedText>Excepcional.</HighlightedText>
           </>
         }
       />
@@ -55,7 +56,8 @@ export default () => {
         subheading={<Subheading>VALUES</Subheading>}
         heading={
           <>
-            We Always Abide by Our <HighlightedText>Principles.</HighlightedText>
+            We Always Abide by Our{" "}
+            <HighlightedText>Principles.</HighlightedText>
           </>
         }
         imageSrc={prototypeIllustrationImageSrc}
@@ -64,15 +66,17 @@ export default () => {
           {
             Icon: MoneyIcon,
             title: "Affordable",
-            description: "We promise to offer you the best rate we can - at par with the industry standard.",
-            iconContainerCss: tw`bg-green-300 text-green-800`
+            description:
+              "We promise to offer you the best rate we can - at par with the industry standard.",
+            iconContainerCss: tw`bg-green-300 text-green-800`,
           },
           {
             Icon: BriefcaseIcon,
             title: "Professionalism",
-            description: "We assure you that our templates are designed and created by professional designers.",
-            iconContainerCss: tw`bg-red-300 text-red-800`
-          }
+            description:
+              "We assure you that our templates are designed and created by professional designers.",
+            iconContainerCss: tw`bg-red-300 text-red-800`,
+          },
         ]}
       />
       <Pricing
@@ -88,23 +92,38 @@ export default () => {
             price: "$17.99",
             duration: "Monthly",
             mainFeature: "For Individuals",
-            features: ["30 Templates", "7 Landing Pages", "12 Internal Pages", "Basic Assistance"]
+            features: [
+              "30 Templates",
+              "7 Landing Pages",
+              "12 Internal Pages",
+              "Basic Assistance",
+            ],
           },
           {
             name: "Business",
             price: "$37.99",
             duration: "Monthly",
             mainFeature: "For Small Businesses",
-            features: ["60 Templates", "15 Landing Pages", "22 Internal Pages", "Priority Assistance"],
-            featured: true
+            features: [
+              "60 Templates",
+              "15 Landing Pages",
+              "22 Internal Pages",
+              "Priority Assistance",
+            ],
+            featured: true,
           },
           {
             name: "Enterprise",
             price: "$57.99",
             duration: "Monthly",
             mainFeature: "For Large Companies",
-            features: ["90 Templates", "27 Landing Pages", "37 Internal Pages", "Personal Assistance"]
-          }
+            features: [
+              "90 Templates",
+              "27 Landing Pages",
+              "37 Internal Pages",
+              "Personal Assistance",
+            ],
+          },
         ]}
       />
       <Testimonial
@@ -123,7 +142,7 @@ export default () => {
             quote:
               "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
             customerName: "Charlotte Hale",
-            customerTitle: "Director, Delos Inc."
+            customerTitle: "Director, Delos Inc.",
           },
           {
             stars: 5,
@@ -133,8 +152,8 @@ export default () => {
             quote:
               "Sinor Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
             customerName: "Adam Cuppy",
-            customerTitle: "Founder, EventsNYC"
-          }
+            customerTitle: "Founder, EventsNYC",
+          },
         ]}
       />
       <FAQ
@@ -148,37 +167,39 @@ export default () => {
           {
             question: "Are all the templates easily customizable ?",
             answer:
-              "Yes, they all are. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              "Yes, they all are. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           },
           {
-            question: "How long do you usually support an standalone template for ?",
+            question:
+              "How long do you usually support an standalone template for ?",
             answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           },
           {
             question: "What kind of payment methods do you accept ?",
             answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           },
           {
-            question: "Is there a subscribption service to get the latest templates ?",
+            question:
+              "Is there a subscribption service to get the latest templates ?",
             answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           },
           {
             question: "Are the templates compatible with the React ?",
             answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           },
           {
             question: "Do you really support Internet Explorer 11 ?",
             answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-          }
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          },
         ]}
       />
-      <GetStarted/>
+      <GetStarted />
       <Footer />
     </AnimationRevealPage>
   );
-}
+};
