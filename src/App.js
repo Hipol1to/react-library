@@ -1,5 +1,5 @@
 import React from "react";
-import GlobalStyles from 'styles/GlobalStyles';
+import GlobalStyles from "styles/GlobalStyles";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
 /*
@@ -85,7 +85,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 // import EventLandingPage from "demos/EventLandingPage.js";
 // import HotelTravelLandingPage from "demos/HotelTravelLandingPage.js";
 // import AgencyLandingPage from "demos/AgencyLandingPage.js";
-// import SaaSProductLandingPage from "demos/SaaSProductLandingPage.js";
+import SaaSProductLandingPage from "demos/SaaSProductLandingPage.js";
 // import RestaurantLandingPage from "demos/RestaurantLandingPage.js";
 // import ServiceLandingPage from "demos/ServiceLandingPage.js";
 // import HostingCloudLandingPage from "demos/HostingCloudLandingPage.js";
@@ -110,16 +110,21 @@ export default function App() {
   // If you want to disable the animation just use the disabled `prop` like below on your page's component
   // return <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
 
-
   return (
     <>
       <GlobalStyles />
       <Router>
         <Routes>
-          <Route path="/components/:type/:subtype/:name" element={<ComponentRenderer />} />
-          <Route path="/components/:type/:name" element={<ComponentRenderer />} />
+          <Route
+            path="/components/:type/:subtype/:name"
+            element={<ComponentRenderer />}
+          />
+          <Route
+            path="/components/:type/:name"
+            element={<ComponentRenderer />}
+          />
           <Route path="/thank-you" element={<ThankYouPage />} />
-          <Route path="/" element={<MainLandingPage />} />
+          <Route path="/" element={<SaaSProductLandingPage />} />
         </Routes>
       </Router>
     </>
