@@ -6,7 +6,7 @@ import {
   SectionHeading,
   Subheading as SubheadingBase,
 } from "components/misc/Headings.js";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
+//import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import TeamIllustrationSrc from "images/team-illustration-2.svg";
 import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 
@@ -39,10 +39,10 @@ const Heading = tw(
 )`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
 const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
 
-const PrimaryButton = styled(PrimaryButtonBase)((props) => [
+/*const PrimaryButton = styled(PrimaryButtonBase)((props) => [
   tw`mt-8 md:mt-8 text-sm inline-block mx-auto md:mx-0`,
   props.buttonRounded && tw`rounded-full`,
-]);
+]);*/
 
 export default ({
   subheading = "Our Expertise",
@@ -53,7 +53,7 @@ export default ({
     </>
   ),
   description = "En EncioSystems, nuestro equipo de expertos se dedica a crear soluciones tecnológicas innovadoras y efectivas, enfocadas en satisfacer las necesidades de tu negocio. Con un enfoque en la calidad y la excelencia, te ayudamos a transformar tus ideas en realidad.",
-  primaryButtonText = "Learn Moro",
+  //primaryButtonText = "Learn Moro",
   //primaryButtonUrl = "https://timerse.com",
   imageSrc = TeamIllustrationSrc,
   //buttonRounded = true,

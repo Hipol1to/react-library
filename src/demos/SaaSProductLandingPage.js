@@ -53,28 +53,29 @@ export default () => {
         decoratorBlobCss={tw`xl:w-40 xl:h-40 opacity-15 -translate-x-1/2 left-1/2`}
       />
       <MainFeature2
-        subheading={<Subheading>VALUES</Subheading>}
+        subheading={<Subheading>VALORES</Subheading>}
         heading={
           <>
-            We Always Abide by Our{" "}
-            <HighlightedText>Principles.</HighlightedText>
+            Siempre nos regimos por nuestros{" "}
+            <HighlightedText>Principios.</HighlightedText>
           </>
         }
         imageSrc={prototypeIllustrationImageSrc}
         showDecoratorBlob={false}
+        description="En EncioSystems, nos mantenemos firmes en nuestros principios fundamentales, brindando soluciones basadas en la ética, la calidad y el compromiso. Nos esforzamos por ofrecer lo mejor a nuestros clientes en cada proyecto."
         features={[
           {
             Icon: MoneyIcon,
-            title: "Affordable",
+            title: "Accesible",
             description:
-              "We promise to offer you the best rate we can - at par with the industry standard.",
+              "Nos comprometemos a ofrecerte la mejor tarifa posible, acorde a los estándares de la industria.",
             iconContainerCss: tw`bg-green-300 text-green-800`,
           },
           {
             Icon: BriefcaseIcon,
-            title: "Professionalism",
+            title: "Profesionalismo",
             description:
-              "We assure you that our templates are designed and created by professional designers.",
+              "Te aseguramos que nuestros productos son diseñados y creados por profesionales con gran experiencia en el campo.",
             iconContainerCss: tw`bg-red-300 text-red-800`,
           },
         ]}
