@@ -129,32 +129,32 @@ export default () => {
         ]}
       />
       <Testimonial
-        subheading={<Subheading>Testimonials</Subheading>}
+        subheading={<Subheading>Testimonios</Subheading>}
         heading={
           <>
-            Our Clients <HighlightedText>Love Us.</HighlightedText>
+            Nuestros Clientes Nos <HighlightedText>Aman.</HighlightedText>
           </>
         }
+        description="En EncioSystems, nos enorgullecemos de ofrecer soluciones de calidad que superan las expectativas. Nuestros clientes confían en nosotros para llevar sus ideas al siguiente nivel."
         testimonials={[
           {
             stars: 5,
-            profileImageSrc:
-              "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=3.25&w=512&h=512&q=80",
-            heading: "Amazing User Experience",
+            profileImageSrc: "https://enciosystems.com/img/montilla.png",
+            heading: "Excelente diseño!.",
             quote:
-              "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-            customerName: "Charlotte Hale",
-            customerTitle: "Director, Delos Inc.",
+              "Impecable trabajo, me siento agusto con el entregable de parte de EncioSystems, sin duda me ayuda en gran medida a impulsar mi negocio.",
+            customerName: "Ramón Montilla",
+            customerTitle: "Agente de bienes raíces",
           },
           {
             stars: 5,
             profileImageSrc:
-              "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=512&h=512&q=80",
-            heading: "Love the Developer Experience and Design Principles !",
+              "https://enciosystems.com/img/opiniinversiones.png",
+            heading: "Complacido con el soporte y seguimiento.",
             quote:
-              "Sinor Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-            customerName: "Adam Cuppy",
-            customerTitle: "Founder, EventsNYC",
+              "EncioSystems ha demostrado un compromiso excepcional con el soporte y el seguimiento de mi proyecto. Cada vez que he tenido una consulta o requerimiento, han respondido de manera rápida y efectiva. Saber que cuento con su respaldo me da una gran tranquilidad. Altamente recomendado por su profesionalismo y atención al cliente.",
+            customerName: "Sarito De La Cruz",
+            customerTitle: "OPINI Inversiones",
           },
         ]}
       />

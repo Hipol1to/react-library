@@ -85,7 +85,7 @@ export default ({
       imageSrc: SupportIconImage,
       title: "Soporte",
       description:
-        "Brindamos asistencia y covertura contra incidentes considerando los riesgos de tu proyecto.",
+        "Brindamos asistencia y cobertura contra incidentes considerando los riesgos de tu proyecto.",
     },
     {
       imageSrc: CustomizeIconImage,
@@ -109,7 +109,7 @@ export default ({
       imageSrc: SimpleIconImage,
       title: "Facilidad",
       description:
-        "Diseñamos interfaces simples y amigables que facilitan la experiencia del usuario0.",
+        "Diseñamos interfaces simples y amigables que facilitan la experiencia del usuario .",
     },
   ];
 
