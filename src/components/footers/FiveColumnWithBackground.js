@@ -3,7 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 
-import LogoImage from "images/logo-light.svg";
+import LogoImage from "images/logo-encio-systems-white.png";
 import { ReactComponent as FacebookIcon } from "images/facebook-icon.svg";
 import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
 import { ReactComponent as YoutubeIcon } from "images/youtube-icon.svg";
@@ -26,7 +26,7 @@ const Divider = tw.div`my-16 border-b-2 border-primary-400 w-full`;
 const ThreeColRow = tw.div`flex flex-col md:flex-row items-center justify-between`;
 
 const LogoContainer = tw.div`flex items-center justify-center md:justify-start`;
-const LogoImg = tw.img`w-8`;
+const LogoImg = tw.img`w-24`;
 const LogoText = tw.h5`ml-2 text-xl font-black tracking-wider text-gray-100`;
 
 const CopywrightNotice = tw.p`text-center text-sm sm:text-base mt-8 md:mt-0 font-medium text-gray-400`;
@@ -53,87 +53,46 @@ export default () => {
       <Content>
         <FiveColumns>
           <Column>
-            <ColumnHeading>Main</ColumnHeading>
+            <ColumnHeading>Inicio</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Blog</Link>
+                <Link href="#">Acerca de</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">FAQs</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Support</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">About Us</Link>
+                <Link href="#">Nuestras soluciones</Link>
               </LinkListItem>
             </LinkList>
           </Column>
           <Column>
-            <ColumnHeading>Product</ColumnHeading>
+            <ColumnHeading>Productos</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Log In</Link>
+                <Link href="#">Calidad</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Personal</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Business</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Team</Link>
+                <Link href="#">Como solicitar un producto</Link>
               </LinkListItem>
             </LinkList>
           </Column>
           <Column>
-            <ColumnHeading>Press</ColumnHeading>
+            <ColumnHeading>Valores</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Logos</Link>
+                <Link href="#">Principios</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Events</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Stories</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Office</Link>
+                <Link href="#">Precios</Link>
               </LinkListItem>
             </LinkList>
           </Column>
           <Column>
-            <ColumnHeading>Team</ColumnHeading>
+            <ColumnHeading>Opiniones</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Career</Link>
+                <Link href="#">Testimonios</Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Founders</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Culture</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Onboarding</Link>
-              </LinkListItem>
-            </LinkList>
-          </Column>
-          <Column>
-            <ColumnHeading>Legal</ColumnHeading>
-            <LinkList>
-              <LinkListItem>
-                <Link href="#">GDPR</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Privacy Policy</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Terms of Service</Link>
-              </LinkListItem>
-              <LinkListItem>
-                <Link href="#">Disclaimer</Link>
+                <Link href="#">Preguntas</Link>
               </LinkListItem>
             </LinkList>
           </Column>
@@ -142,9 +101,11 @@ export default () => {
         <ThreeColRow>
           <LogoContainer>
             <LogoImg src={LogoImage} />
-            <LogoText>Treact Inc.</LogoText>
+            <LogoText>EncioSystems Inc.</LogoText>
           </LogoContainer>
-          <CopywrightNotice>&copy; 2018 Treact Inc. All Rights Reserved.</CopywrightNotice>
+          <CopywrightNotice>
+            &copy; 2024 EncioSystems Inc. Todos los derechos reservados.
+          </CopywrightNotice>
           <SocialLinksContainer>
             <SocialLink href="https://facebook.com">
               <FacebookIcon />

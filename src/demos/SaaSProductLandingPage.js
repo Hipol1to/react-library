@@ -159,36 +159,35 @@ export default () => {
         ]}
       />
       <FAQ
-        subheading={<Subheading>FAQS</Subheading>}
+        subheading={<Subheading>DUDAS</Subheading>}
         heading={
           <>
-            You have <HighlightedText>Questions ?</HighlightedText>
+            Tienes <HighlightedText>Preguntas ?</HighlightedText>
           </>
         }
+        description="Nosotros tenemos respuestas para todas ellas."
         faqs={[
           {
-            question: "Are all the templates easily customizable ?",
+            question: "Que pasa si quiero cambiarle algo a mi pagina web ?",
             answer:
-              "Yes, they all are. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "La satisfacción de los clientes es esencial para nosotros, en caso de no estar conforme ofrecemos una semana extra para revisiones y modificaciones exclusivamente para casos esfecíficos.",
           },
           {
-            question:
-              "How long do you usually support an standalone template for ?",
+            question: "Como veo mi Web despues que es desarrollada ?",
             answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "Para poder visualizar un sitio web desde cualquier dispositivo, es necesario comprar un dominio y contratar un servicio de Hosting para alojar el sitio web.",
           },
           {
-            question: "What kind of payment methods do you accept ?",
+            question: "Como puedo contratar un servico de Hosting ?",
             answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "Ofrecemos asesoría gratuita para recomendarte el servicio de Host mas adecuado para tu proyecto y presupuesto.",
           },
           {
-            question:
-              "Is there a subscribption service to get the latest templates ?",
+            question: "Como procede el mantenimiento de mi Web/Sistema ?",
             answer:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+              "Para una Web Estática, ofrecemos hasta 2 modificaciones por mes a un precio de $9.99. Para Sistemas Web y Apps Moviles las modificaciones se obtienen desde $24.99 dependiendo el requerimiento. En el caso de Soluciones Empresariales avanzadas, se cobraría por incidente o solicitud de mejora, el precio va a depender de las horas de trabajo invertidas.",
           },
-          {
+          /*{
             question: "Are the templates compatible with the React ?",
             answer:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -197,7 +196,7 @@ export default () => {
             question: "Do you really support Internet Explorer 11 ?",
             answer:
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          },
+          },*/
         ]}
       />
       <GetStarted />
