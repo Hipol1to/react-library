@@ -22,7 +22,7 @@ export default () => {
     <AnimationRevealPage>
       <Header />
       <MainFeature1
-        subheading={<Subheading>About Treact</Subheading>}
+        subheading={<Subheading>About EncioSystems</Subheading>}
         heading="We are a modern design agency."
         buttonRounded={false}
         primaryButtonText="See Portfolio"
@@ -44,24 +44,25 @@ export default () => {
           {
             imageSrc: SupportIconImage,
             title: "24/7 Support",
-            description: "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport"
+            description:
+              "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport",
           },
           {
             imageSrc: ShieldIconImage,
             title: "Strong Teams",
-            description: "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport"
+            description:
+              "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport",
           },
           {
             imageSrc: CustomerLoveIconImage,
             title: "Customer Satisfaction",
-            description: "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport"
+            description:
+              "Lorem ipsum donor amet siti ceali placeholder text alipiscing elit sed do eiusmod temport",
           },
         ]}
         linkText=""
       />
-      <TeamCardGrid 
-        subheading={<Subheading>Our Team</Subheading>}
-      />
+      <TeamCardGrid subheading={<Subheading>Our Team</Subheading>} />
       <Footer />
     </AnimationRevealPage>
   );

@@ -117,7 +117,7 @@ export default ({
   innerPages = components.innerPages,
   blocks = components.blocks,
   heading = "EncioSystems.",
-  description = "Easily customizable modern React UI Templates and Components built using TailwindCSS which are also lightweight and simple to setup. All components are modular and fully responsive for great mobile experience as well as big desktop screens.  Brand Colors are also fully customizable. Free for personal as well as commercial use.",
+  description = "En EncioSystems, somos expertos en el desarrollo de soluciones innovadoras en web, aplicaciones móviles, aplicaciones de escritorio, y consultoría de software.Free for personal as well as commercial use.",
 }) => {
   /*
    * Using gtag like this because we only want to use Google Analytics when Main Landing Page is rendered
@@ -161,7 +161,7 @@ export default ({
           <NavRow>
             <LogoLink href="/">
               <img src={logo} alt="" />
-              Treact
+              EncioSystems
             </LogoLink>
             <div tw="flex flex-wrap justify-center lg:justify-end items-center -mr-12">
               <NavLink

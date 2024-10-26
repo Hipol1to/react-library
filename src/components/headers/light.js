@@ -63,6 +63,12 @@ export default ({
   className,
   collapseBreakpointClass = "lg",
 }) => {
+  const valoresRef = useRef(null);
+  const preciosRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
   /*
    * This header component accepts an optionals "links" prop that specifies the links to render in the navbar.
    * This links props should be an array of "NavLinks" components which is exported from this file.
@@ -78,7 +84,7 @@ export default ({
    */
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href="/#">Inicio</NavLink>
+      <NavLink onClick={() => scrollToSection(valoresRef)}>Inicio</NavLink>
       <NavLink href="/#">Precios</NavLink>
       <NavLink href="/#">Valores</NavLink>
       <NavLink href="/#">Opiniones</NavLink>

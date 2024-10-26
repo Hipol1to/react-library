@@ -103,6 +103,7 @@ import SaaSProductLandingPage from "demos/SaaSProductLandingPage.js";
 import ComponentRenderer from "ComponentRenderer.js";
 //import MainLandingPage from "MainLandingPage.js";
 import ThankYouPage from "ThankYouPage.js";
+import { ScrollProvider } from "./ScrollContext";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -111,7 +112,7 @@ export default function App() {
   // return <AnimationRevealPage disabled>xxxxxxxxxx</AnimationRevealPage>;
 
   return (
-    <>
+    <ScrollProvider>
       <GlobalStyles />
       <Router>
         <Routes>
@@ -127,7 +128,7 @@ export default function App() {
           <Route path="/" element={<SaaSProductLandingPage />} />
         </Routes>
       </Router>
-    </>
+    </ScrollProvider>
   );
 }
 
