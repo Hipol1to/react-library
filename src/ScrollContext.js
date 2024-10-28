@@ -1,14 +1,19 @@
-import React, { createContext, useRef, useContext } from "react";
+import React, { createContext, useContext, useState } from "react";
 
 const ScrollContext = createContext();
 
 export const ScrollProvider = ({ children }) => {
-  const featureRef = useRef(null);
+  const [scrollToId, setScrollToId] = useState(null);
+
+  const triggerScroll = (id) => {
+    setScrollToId(id);
+  };
+
   return (
-    <ScrollContext.Provider value={{ featureRef }}>
+    <ScrollContext.Provider value={{ scrollToId, triggerScroll }}>
       {children}
     </ScrollContext.Provider>
   );
 };
 
-export const useScrollContext = () => useContext(ScrollContext);
+export const useScroll = () => useContext(ScrollContext);

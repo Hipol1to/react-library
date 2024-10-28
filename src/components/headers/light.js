@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -63,12 +63,6 @@ export default ({
   className,
   collapseBreakpointClass = "lg",
 }) => {
-  const valoresRef = useRef(null);
-  const preciosRef = useRef(null);
-
-  const scrollToSection = (ref) => {
-    ref.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
   /*
    * This header component accepts an optionals "links" prop that specifies the links to render in the navbar.
    * This links props should be an array of "NavLinks" components which is exported from this file.
@@ -82,15 +76,98 @@ export default ({
    * changing the defaultLinks variable below below.
    * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
    */
+  const ContactModal = ({ isOpen, onClose }) => {
+    if (!isOpen) return null;
+
+    return (
+      <div
+        css={tw`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50`}
+      >
+        <div css={tw`bg-white p-6 rounded-lg z-50`}>
+          <h2 css={tw`text-xl font-semibold mb-4`}>Contáctanos</h2>
+          <form>
+            <label css={tw`block mb-2`}>
+              Nombre:
+              <input type="text" css={tw`block border p-2 mt-1 w-full`} />
+            </label>
+            <label css={tw`block mb-2`}>
+              Correo Electrónico:
+              <input type="email" css={tw`block border p-2 mt-1 w-full`} />
+            </label>
+            <label css={tw`block mb-4`}>
+              Mensaje:
+              <textarea
+                css={tw`block border p-2 mt-1 w-full`}
+                rows="4"
+              ></textarea>
+            </label>
+            <button
+              type="submit"
+              css={tw`bg-blue-500 text-white px-4 py-2 rounded-lg`}
+            >
+              Enviar
+            </button>
+          </form>
+          <button onClick={onClose} css={tw`mt-4 text-blue-500`}>
+            Cerrar
+          </button>
+        </div>
+      </div>
+    );
+  };
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleModalOpen = () => setModalOpen(true);
+  const handleModalClose = () => setModalOpen(false);
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink onClick={() => scrollToSection(valoresRef)}>Inicio</NavLink>
-      <NavLink href="/#">Precios</NavLink>
-      <NavLink href="/#">Valores</NavLink>
-      <NavLink href="/#">Opiniones</NavLink>
-      <PrimaryLink css={roundedHeaderButton && tw`rounded-full`} href="/#">
+      <NavLink href="/#">Inicio</NavLink>
+      <NavLink
+        onClick={() => {
+          let element = document.getElementById("IdPrecioss"); // Replace with your element's ID
+          let yCoordinate =
+            element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: yCoordinate,
+            behavior: "smooth",
+          });
+        }}
+      >
+        Precios
+      </NavLink>
+      <NavLink
+        onClick={() => {
+          let element = document.getElementById("IdValoress"); // Replace with your element's ID
+          let yCoordinate =
+            element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: yCoordinate,
+            behavior: "smooth",
+          });
+        }}
+      >
+        Valores
+      </NavLink>
+      <NavLink
+        onClick={() => {
+          let element = document.getElementById("IdTestimonios"); // Replace with your element's ID
+          let yCoordinate =
+            element.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: yCoordinate,
+            behavior: "smooth",
+          });
+        }}
+      >
+        Opiniones
+      </NavLink>
+      <PrimaryLink
+        css={roundedHeaderButton && tw`rounded-full`}
+        onClick={handleModalOpen}
+      >
         Contáctanos
       </PrimaryLink>
+      <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
     </NavLinks>,
   ];
 
