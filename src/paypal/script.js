@@ -91,17 +91,12 @@ export function paypalInitialize() {
                 intent === "authorize" ? "authorizations" : "captures";
               //Custom Successful Message
               alerts.innerHTML =
-                `<div class=\'ms-alert ms-action\'>Gracias ` +
+                `<div class=\'ms-alert ms-action\'>Gracias por tu compra! ` +
                 order_details.payer.name.given_name +
                 ` ` +
                 order_details.payer.name.surname +
-                ` for your payment of ` +
-                order_details.purchase_units[0].payments[intent_object][0]
-                  .amount.value +
-                ` ` +
-                order_details.purchase_units[0].payments[intent_object][0]
-                  .amount.currency_code +
-                `!</div>`;
+                `<br> Te estaremos contactando para desarrollar tu producto ` +
+                `</div>`;
 
               //Close out the PayPal buttons that were rendered
               paypal_buttons.close();
