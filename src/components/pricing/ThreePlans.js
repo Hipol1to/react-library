@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -10,6 +10,7 @@ import { SectionDescription } from "components/misc/Typography.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-6.svg";
+import { paypalInitialize } from "../../paypal/script";
 
 const HeaderContainer = tw.div`mt-10 w-full flex flex-col items-center`;
 const Subheading = tw(SubheadingBase)`mb-4`;
@@ -133,6 +134,33 @@ export default ({
 
   if (!plans) plans = defaultPlans;
 
+  const ContactModal = ({ isOpen, onClose }) => {
+    if (!isOpen) return null;
+
+    return (
+      <div
+        css={tw`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50`}
+      >
+        <div css={tw`bg-white p-6 rounded-lg z-50`}>
+          <div id="alerts" css={tw`bg-white p-6 rounded-lg z-50`}>
+            <div id="payment_options" css={tw`bg-white p-6 rounded-lg z-50`}>
+              {/*<h2 css={tw`text-xl font-semibold mb-4`}>Contáctanos</h2>*/}
+            </div>
+          </div>
+          <button onClick={onClose} css={tw`mt-4 text-blue-500`}>
+            Cerrar
+          </button>
+        </div>
+      </div>
+    );
+  };
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
+    setModalOpen(true);
+    paypalInitialize();
+  };
+  const handleModalClose = () => setModalOpen(false);
   const highlightGradientsCss = [
     css`
       background: rgb(56, 178, 172);
@@ -197,6 +225,7 @@ export default ({
               </PlanFeatures>
               <PlanAction>
                 <BuyNowButton
+                  onClick={handleModalOpen}
                   css={!plan.featured && highlightGradientsCss[index]}
                 >
                   {primaryButtonText}
@@ -204,6 +233,7 @@ export default ({
               </PlanAction>
             </Plan>
           ))}
+          <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
           <DecoratorBlob />
         </PlansContainer>
       </ContentWithPaddingXl>
