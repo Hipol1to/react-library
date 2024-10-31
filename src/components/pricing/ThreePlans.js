@@ -132,8 +132,6 @@ export default ({
     },
   ];
 
-  if (!plans) plans = defaultPlans;
-
   const ContactModal = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
@@ -156,9 +154,9 @@ export default ({
   };
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const handleModalOpen = () => {
+  const handleModalOpen = (theAmmount) => {
     setModalOpen(true);
-    paypalInitialize();
+    paypalInitialize(theAmmount);
   };
   const handleModalClose = () => setModalOpen(false);
   const highlightGradientsCss = [
@@ -225,7 +223,10 @@ export default ({
               </PlanFeatures>
               <PlanAction>
                 <BuyNowButton
-                  onClick={handleModalOpen}
+                  name={plan.price}
+                  onClick={() =>
+                    handleModalOpen(plan.price.replace(/[$+]/g, ""))
+                  }
                   css={!plan.featured && highlightGradientsCss[index]}
                 >
                   {primaryButtonText}
@@ -233,7 +234,12 @@ export default ({
               </PlanAction>
             </Plan>
           ))}
-          <ContactModal isOpen={isModalOpen} onClose={handleModalClose} />
+
+          <ContactModal
+            id={"paymentModal"}
+            isOpen={isModalOpen}
+            onClose={handleModalClose}
+          />
           <DecoratorBlob />
         </PlansContainer>
       </ContentWithPaddingXl>

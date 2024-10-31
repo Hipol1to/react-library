@@ -1,6 +1,7 @@
 // Helper / Utility functions
-export function paypalInitialize() {
+export function paypalInitialize(theAmmount) {
   console.log("entramo");
+  console.log(theAmmount);
 
   let url_to_head = (url) => {
     return new Promise(function (resolve, reject) {
@@ -29,6 +30,9 @@ export function paypalInitialize() {
     "Ae15xLTKadxt1n17OTKnYK9GKc6TTcqvBM5CHt1IXAAKKwlTtx_RJ82ndJssVjy8ioL6Hw3bxz2teIqU";
   const currency = "USD";
   const intent = "capture";
+  const ammount = "102.00";
+  //console.log(document.getElementById("ammountToBuy").getAttribute("name"));
+
   //let alerts = document.getElementById("alerts");
 
   //PayPal Code
@@ -66,7 +70,7 @@ export function paypalInitialize() {
           return fetch("http://localhost:3000/create_order", {
             method: "post",
             headers: { "Content-Type": "application/json; charset=utf-8" },
-            body: JSON.stringify({ intent: intent }),
+            body: JSON.stringify({ intent: intent, ammount: ammount }),
           })
             .then((response) => response.json())
             .then((order) => {
