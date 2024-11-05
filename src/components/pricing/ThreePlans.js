@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -10,7 +10,6 @@ import { SectionDescription } from "components/misc/Typography.js";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as SvgDecoratorBlob } from "images/svg-decorator-blob-6.svg";
-import { paypalInitialize } from "../../paypal/script";
 
 const HeaderContainer = tw.div`mt-10 w-full flex flex-col items-center`;
 const Subheading = tw(SubheadingBase)`mb-4`;
@@ -132,7 +131,34 @@ export default ({
     },
   ];
 
-  const ContactModal = ({ isOpen, onClose }) => {
+  const PaymentModal = ({ isOpen, onClose }) => {
+    useEffect(() => {
+      if (isOpen) {
+        const script = document.createElement("script");
+        script.src =
+          "https://www.paypal.com/sdk/js?client-id=BAAExSNHmsI9rmQDi_BfDtlHXjPaOhAumN7CYfObZ1B6zeXYDSRnjghlYb_TKnQvF8CU-Bm-OYEYRxlPnQ&components=hosted-buttons&disable-funding=venmo&currency=USD";
+        script.async = true;
+        script.crossOrigin = "anonymous";
+
+        script.onload = () => {
+          if (window.paypal) {
+            window.paypal
+              .HostedButtons({
+                hostedButtonId: "CCUVWCYUX8SES",
+              })
+              .render("#paypal-container-CCUVWCYUX8SES");
+          }
+        };
+
+        document.body.appendChild(script);
+
+        // Cleanup script on component unmount
+        return () => {
+          document.body.removeChild(script);
+        };
+      }
+    }, [isOpen]);
+
     if (!isOpen) return null;
 
     return (
@@ -140,9 +166,9 @@ export default ({
         css={tw`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50`}
       >
         <div css={tw`bg-white p-6 rounded-lg z-50`}>
-          <div id="alerts" css={tw`bg-white p-6 rounded-lg z-50`}>
-            <div id="payment_options" css={tw`bg-white p-6 rounded-lg z-50`}>
-              {/*<h2 css={tw`text-xl font-semibold mb-4`}>Contáctanos</h2>*/}
+          <div id="alerts" css={tw`bg-white p-6 rounded-lg`}>
+            <div id="payment_options" css={tw`bg-white p-6 rounded-lg`}>
+              <div id="paypal-container-CCUVWCYUX8SES"></div>
             </div>
           </div>
           <button onClick={onClose} css={tw`mt-4 text-blue-500`}>
@@ -156,7 +182,6 @@ export default ({
 
   const handleModalOpen = (theAmmount) => {
     setModalOpen(true);
-    paypalInitialize(theAmmount);
   };
   const handleModalClose = () => setModalOpen(false);
   const highlightGradientsCss = [
@@ -224,9 +249,7 @@ export default ({
               <PlanAction>
                 <BuyNowButton
                   name={plan.price}
-                  onClick={() =>
-                    handleModalOpen(plan.price.replace(/[$+]/g, ""))
-                  }
+                  onClick={() => handleModalOpen()}
                   css={!plan.featured && highlightGradientsCss[index]}
                 >
                   {primaryButtonText}
@@ -235,7 +258,7 @@ export default ({
             </Plan>
           ))}
 
-          <ContactModal
+          <PaymentModal
             id={"paymentModal"}
             isOpen={isModalOpen}
             onClose={handleModalClose}
