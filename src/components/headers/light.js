@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import DatePicker from "react-datepicker"; // Ensure you have this package installed
+import "react-datepicker/dist/react-datepicker.css"; // Include the styles for the date picker
 import { motion } from "framer-motion";
 import tw from "twin.macro";
 import styled from "styled-components";
@@ -77,39 +79,106 @@ export default ({
    * If you manipulate links here, all the styling on the links is already done for you. If you pass links yourself though, you are responsible for styling the links or use the helper styled components that are defined here (NavLink)
    */
   const ContactModal = ({ isOpen, onClose }) => {
+    const [selectedDate, setSelectedDate] = useState(null);
+
     if (!isOpen) return null;
 
     return (
       <div
         css={tw`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50`}
       >
-        <div css={tw`bg-white p-6 rounded-lg z-50`}>
-          <h2 css={tw`text-xl font-semibold mb-4`}>Contáctanos</h2>
-          <form>
-            <label css={tw`block mb-2`}>
-              Nombre:
-              <input type="text" css={tw`block border p-2 mt-1 w-full`} />
-            </label>
-            <label css={tw`block mb-2`}>
-              Correo Electrónico:
-              <input type="email" css={tw`block border p-2 mt-1 w-full`} />
-            </label>
-            <label css={tw`block mb-4`}>
-              Mensaje:
-              <textarea
-                css={tw`block border p-2 mt-1 w-full`}
-                rows="4"
-              ></textarea>
-            </label>
+        <div css={tw`bg-white p-8 rounded-lg z-50 w-full max-w-3xl`}>
+          <form css={tw`space-y-4`}>
+            <div>
+              <h2
+                style={{
+                  textAlign: "center",
+                  marginTop: "2rem",
+                  fontSize: "30px",
+                }}
+              >
+                Agenda una reunion para contactarnos.
+              </h2>
+              <br />
+              <br />
+              <label
+                htmlFor="fullName"
+                css={tw`block text-sm font-medium mb-1`}
+              >
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                css={tw`w-full p-3 border border-gray-300 rounded`}
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" css={tw`block text-sm font-medium mb-1`}>
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                css={tw`w-full p-3 border border-gray-300 rounded`}
+                placeholder="Enter your email"
+                value={
+                  document.getElementById("sceduleEmailTextField").value ===
+                    null ||
+                  document.getElementById("sceduleEmailTextField").value ===
+                    undefined ||
+                  document.getElementById("sceduleEmailTextField").value === ""
+                    ? " "
+                    : document.getElementById("sceduleEmailTextField").value
+                }
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="messageTitle"
+                css={tw`block text-sm font-medium mb-1`}
+              >
+                Message Title
+              </label>
+              <input
+                type="text"
+                id="messageTitle"
+                name="messageTitle"
+                css={tw`w-full p-3 border border-gray-300 rounded`}
+                placeholder="Enter the message title"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="schedule"
+                css={tw`block text-sm font-medium mb-1`}
+              >
+                Schedule a Meeting
+              </label>
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                showTimeSelect
+                dateFormat="Pp"
+                css={tw`w-full p-3 border border-gray-300 rounded`}
+                placeholderText="Select a date and time"
+              />
+            </div>
+
             <button
               type="submit"
-              css={tw`bg-blue-500 text-white px-4 py-2 rounded-lg`}
+              css={tw`w-full bg-blue-500 text-white py-3 rounded mt-4`}
             >
-              Enviar
+              Schedule Meeting
             </button>
           </form>
           <button onClick={onClose} css={tw`mt-4 text-blue-500`}>
-            Cerrar
+            Close
           </button>
         </div>
       </div>

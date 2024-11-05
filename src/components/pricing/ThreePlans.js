@@ -205,12 +205,118 @@ export default ({
       </div>
     );
   };
+  const ContactModal = ({ isOpen, onClose }) => {
+    if (!isOpen) return null;
+
+    return (
+      <div
+        css={tw`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50`}
+      >
+        <div css={tw`bg-white p-8 rounded-lg z-50 w-full max-w-3xl`}>
+          <form css={tw`space-y-4`}>
+            <div>
+              <label
+                htmlFor="fullName"
+                css={tw`block text-sm font-medium mb-1`}
+              >
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                css={tw`w-full p-3 border border-gray-300 rounded`}
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="phoneNumber"
+                css={tw`block text-sm font-medium mb-1`}
+              >
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                css={tw`w-full p-3 border border-gray-300 rounded`}
+                placeholder="Enter your phone number"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" css={tw`block text-sm font-medium mb-1`}>
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                css={tw`w-full p-3 border border-gray-300 rounded`}
+                placeholder="Enter your email"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="messageTitle"
+                css={tw`block text-sm font-medium mb-1`}
+              >
+                Message Title
+              </label>
+              <input
+                type="text"
+                id="messageTitle"
+                name="messageTitle"
+                css={tw`w-full p-3 border border-gray-300 rounded`}
+                placeholder="Enter the message title"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="message" css={tw`block text-sm font-medium mb-1`}>
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                css={tw`w-full p-3 border border-gray-300 rounded`}
+                placeholder="Enter your message"
+                rows="6"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              css={tw`w-full bg-blue-500 text-white py-3 rounded mt-4`}
+            >
+              Send
+            </button>
+          </form>
+          <button onClick={onClose} css={tw`mt-4 text-blue-500`}>
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const handleModalOpen = (theAmmount) => {
+  const [isContactModalOpen, setContactModalOpen] = useState(false);
+
+  const handleModalOpen = () => {
     setModalOpen(true);
   };
+  const handleContactModalOpen = () => {
+    setContactModalOpen(true);
+  };
   const handleModalClose = () => setModalOpen(false);
+
+  const handleContactModalClose = () => setContactModalOpen(false);
+
   const highlightGradientsCss = [
     css`
       background: rgb(56, 178, 172);
@@ -276,7 +382,13 @@ export default ({
               <PlanAction>
                 <BuyNowButton
                   name={plan.price}
-                  onClick={() => handleModalOpen()}
+                  onClick={() => {
+                    if (plan.name === "Soluciones Empresariales") {
+                      handleContactModalOpen();
+                    } else {
+                      handleModalOpen();
+                    }
+                  }}
                   css={!plan.featured && highlightGradientsCss[index]}
                 >
                   {primaryButtonText}
@@ -289,6 +401,11 @@ export default ({
             id={"paymentModal"}
             isOpen={isModalOpen}
             onClose={handleModalClose}
+          />
+          <ContactModal
+            id={"contactModal"}
+            isOpen={isContactModalOpen}
+            onClose={handleContactModalClose}
           />
           <DecoratorBlob />
         </PlansContainer>
