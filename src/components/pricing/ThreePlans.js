@@ -132,31 +132,58 @@ export default ({
   ];
 
   const PaymentModal = ({ isOpen, onClose }) => {
+    const [isScriptLoaded, setIsScriptLoaded] = useState(false);
+
     useEffect(() => {
       if (isOpen) {
-        const script = document.createElement("script");
-        script.src =
-          "https://www.paypal.com/sdk/js?client-id=BAAExSNHmsI9rmQDi_BfDtlHXjPaOhAumN7CYfObZ1B6zeXYDSRnjghlYb_TKnQvF8CU-Bm-OYEYRxlPnQ&components=hosted-buttons&disable-funding=venmo&currency=USD";
-        script.async = true;
-        script.crossOrigin = "anonymous";
+        if (!isScriptLoaded) {
+          const existingScript = document.querySelector(
+            'script[src*="paypal.com/sdk/js"]'
+          );
 
-        script.onload = () => {
-          if (window.paypal) {
-            window.paypal
-              .HostedButtons({
-                hostedButtonId: "CCUVWCYUX8SES",
-              })
-              .render("#paypal-container-CCUVWCYUX8SES");
+          if (!existingScript) {
+            const script = document.createElement("script");
+            script.src =
+              "https://www.paypal.com/sdk/js?client-id=BAAExSNHmsI9rmQDi_BfDtlHXjPaOhAumN7CYfObZ1B6zeXYDSRnjghlYb_TKnQvF8CU-Bm-OYEYRxlPnQ&components=hosted-buttons&disable-funding=venmo&currency=USD";
+            script.async = true;
+            script.crossOrigin = "anonymous";
+
+            script.onload = () => {
+              setIsScriptLoaded(true);
+              if (window.paypal) {
+                window.paypal
+                  .HostedButtons({
+                    hostedButtonId: "CCUVWCYUX8SES",
+                  })
+                  .render("#paypal-container-CCUVWCYUX8SES");
+              }
+            };
+
+            document.body.appendChild(script);
+          } else {
+            setIsScriptLoaded(true);
+            if (window.paypal) {
+              window.paypal
+                .HostedButtons({
+                  hostedButtonId: "CCUVWCYUX8SES",
+                })
+                .render("#paypal-container-CCUVWCYUX8SES");
+            }
           }
-        };
-
-        document.body.appendChild(script);
-
-        // Cleanup script on component unmount
-        return () => {
-          document.body.removeChild(script);
-        };
+        }
       }
+    }, [isOpen, isScriptLoaded]);
+
+    useEffect(() => {
+      // Clear the PayPal container if the modal closes to avoid re-initialization issues
+      return () => {
+        const paypalContainer = document.getElementById(
+          "paypal-container-CCUVWCYUX8SES"
+        );
+        if (paypalContainer) {
+          paypalContainer.innerHTML = "";
+        }
+      };
     }, [isOpen]);
 
     if (!isOpen) return null;
