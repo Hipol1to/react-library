@@ -91,7 +91,7 @@ export default () => {
         plans={[
           {
             name: "Web Estática",
-            price: "$89.99",
+            price: "USD$89.99",
             duration: "Único pago",
             mainFeature: "Ideal para proyectos individuales.",
             features: [
@@ -103,7 +103,7 @@ export default () => {
           },
           {
             name: "Sistema Web",
-            price: "$124.99",
+            price: "USD$124.99",
             duration: "Único pago",
             mainFeature: "Ideal para empresas buscando soluciones Web o Móvil.",
             features: [
@@ -116,7 +116,7 @@ export default () => {
           },
           {
             name: "Soluciones Empresariales",
-            price: "+$249.99",
+            price: "+USD$249.99",
             duration: "Único pago",
             mainFeature: "Soluciones avanzadas para grandes empresas.",
             features: [
@@ -124,6 +124,18 @@ export default () => {
               "Diseño y modelado de datos",
               "Consultoría de Software",
               "Mantenimiento a Sistemas implementados",
+            ],
+          },
+          {
+            name: "Plan Personalizado",
+            price: "$Ajustable",
+            duration: "Cuotas / Único pago",
+            mainFeature: "Personalizado conforme a tus necesidades.",
+            features: [
+              "Pagina Web Personalizada",
+              "Sistema o Plataforma Personalizada",
+              "Soporte Técnico (Hardware/Software)",
+              "Diseño Web a la medida",
             ],
           },
         ]}

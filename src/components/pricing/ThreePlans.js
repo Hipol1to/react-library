@@ -175,7 +175,6 @@ export default ({
     }, [isOpen, isScriptLoaded]);
 
     useEffect(() => {
-      // Clear the PayPal container if the modal closes to avoid re-initialization issues
       return () => {
         const paypalContainer = document.getElementById(
           "paypal-container-CCUVWCYUX8SES"
@@ -193,11 +192,20 @@ export default ({
         css={tw`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50`}
       >
         <div css={tw`bg-white p-6 rounded-lg z-50`}>
-          <div id="alerts" css={tw`bg-white p-6 rounded-lg`}>
-            <div id="payment_options" css={tw`bg-white p-6 rounded-lg`}>
-              <div id="paypal-container-CCUVWCYUX8SES"></div>
+          {!isScriptLoaded ? (
+            <div css={tw`flex justify-center items-center`}>
+              <div
+                css={tw`w-8 h-8 border-4 border-blue-500 border-dotted rounded-full animate-spin`}
+              />
+              <span css={tw`ml-3 text-blue-500`}>Cargando...</span>
             </div>
-          </div>
+          ) : (
+            <div id="alerts" css={tw`bg-white p-6 rounded-lg`}>
+              <div id="payment_options" css={tw`bg-white p-6 rounded-lg`}>
+                <div id="paypal-container-CCUVWCYUX8SES"></div>
+              </div>
+            </div>
+          )}
           <button onClick={onClose} css={tw`mt-4 text-blue-500`}>
             Cerrar
           </button>
@@ -355,7 +363,7 @@ export default ({
           <Heading>{heading}</Heading>
           {description && <Description>{description}</Description>}
         </HeaderContainer>
-        <PlansContainer>
+        <PlansContainer style={{ justifyContent: "center" }}>
           {plans.map((plan, index) => (
             <Plan key={index} featured={plan.featured}>
               {!plan.featured && (
@@ -383,7 +391,10 @@ export default ({
                 <BuyNowButton
                   name={plan.price}
                   onClick={() => {
-                    if (plan.name === "Soluciones Empresariales") {
+                    if (
+                      plan.name === "Soluciones Empresariales" ||
+                      plan.name === "Plan Personalizado"
+                    ) {
                       handleContactModalOpen();
                     } else {
                       handleModalOpen();
