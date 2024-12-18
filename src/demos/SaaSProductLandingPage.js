@@ -26,7 +26,9 @@ export default () => {
     <AnimationRevealPage>
       <Hero roundedHeaderButton={true} />
       <Features
-        subheading={<Subheading>Nuestras Soluciones</Subheading>}
+        subheading={
+          <Subheading id="ourSoutionsTitle">Nuestras Soluciones</Subheading>
+        }
         heading={
           <>
             Ofrecemos un Servicio{" "}
@@ -35,13 +37,17 @@ export default () => {
         }
       />
       <MainFeature
-        subheading={<Subheading>TRABAJO DE CALIDAD</Subheading>}
+        subheading={
+          <Subheading id="qualityWorkTitle">TRABAJO DE CALIDAD</Subheading>
+        }
         imageSrc={heroScreenshotImageSrc}
         imageBorder={true}
         imageDecoratorBlob={true}
       />
       <FeatureWithSteps
-        subheading={<Subheading>PASOS A SEGUIR</Subheading>}
+        subheading={
+          <Subheading id="stepsToFollowSectionTitle">PASOS A SEGUIR</Subheading>
+        }
         heading={
           <>
             Solicita tu <HighlightedText>Producto.</HighlightedText>
@@ -171,7 +177,7 @@ export default () => {
         ]}
       />
       <FAQ
-        subheading={<Subheading>DUDAS</Subheading>}
+        subheading={<Subheading id="dudasSectionTitle">DUDAS</Subheading>}
         heading={
           <>
             Tienes <HighlightedText>Preguntas ?</HighlightedText>

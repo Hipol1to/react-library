@@ -6,7 +6,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import LogoImage from "images/logo-encio-systems-white.png";
 import { ReactComponent as FacebookIcon } from "images/facebook-icon.svg";
 import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
-import { ReactComponent as YoutubeIcon } from "images/youtube-icon.svg";
+import { ReactComponent as InstagramIcon } from "images/instagram-icon.svg";
 import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-9.svg";
 
 const Container = tw.div`relative bg-primary-500 text-gray-100 -mb-8 -mx-8 px-8 py-20 lg:py-24`;
@@ -19,7 +19,7 @@ const ColumnHeading = tw.h5`uppercase font-bold`;
 
 const LinkList = tw.ul`mt-6 text-sm font-medium`;
 const LinkListItem = tw.li`mt-3`;
-const Link = tw.a`border-b-2 border-transparent hocus:border-gray-100 pb-1 transition duration-300`;
+const Link = tw.a`cursor-pointer border-b-2 border-transparent hocus:border-gray-100 pb-1 transition duration-300`;
 
 const Divider = tw.div`my-16 border-b-2 border-primary-400 w-full`;
 
@@ -56,10 +56,38 @@ export default () => {
             <ColumnHeading>Inicio</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Acerca de</Link>
+                <Link
+                  onClick={() => {
+                    let element = document.getElementById("inicioNavOpton"); // Replace with your element's ID
+                    let yCoordinate =
+                      element.getBoundingClientRect().top +
+                      window.scrollY -
+                      100;
+                    window.scrollTo({
+                      top: yCoordinate,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Acerca de
+                </Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Nuestras soluciones</Link>
+                <Link
+                  onClick={() => {
+                    let element = document.getElementById("ourSoutionsTitle"); // Replace with your element's ID
+                    let yCoordinate =
+                      element.getBoundingClientRect().top +
+                      window.scrollY -
+                      100;
+                    window.scrollTo({
+                      top: yCoordinate,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Nuestras soluciones
+                </Link>
               </LinkListItem>
             </LinkList>
           </Column>
@@ -67,10 +95,40 @@ export default () => {
             <ColumnHeading>Productos</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Calidad</Link>
+                <Link
+                  onClick={() => {
+                    let element = document.getElementById("qualityWorkTitle"); // Replace with your element's ID
+                    let yCoordinate =
+                      element.getBoundingClientRect().top +
+                      window.scrollY -
+                      100;
+                    window.scrollTo({
+                      top: yCoordinate,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Calidad
+                </Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Como solicitar un producto</Link>
+                <Link
+                  onClick={() => {
+                    let element = document.getElementById(
+                      "stepsToFollowSectionTitle"
+                    ); // Replace with your element's ID
+                    let yCoordinate =
+                      element.getBoundingClientRect().top +
+                      window.scrollY -
+                      100;
+                    window.scrollTo({
+                      top: yCoordinate,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Como solicitar un producto
+                </Link>
               </LinkListItem>
             </LinkList>
           </Column>
@@ -78,10 +136,36 @@ export default () => {
             <ColumnHeading>Valores</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Principios</Link>
+                <Link
+                  onClick={() => {
+                    let element = document.getElementById("IdValoress"); // Replace with your element's ID
+                    let yCoordinate =
+                      element.getBoundingClientRect().top +
+                      window.scrollY -
+                      100;
+                    window.scrollTo({
+                      top: yCoordinate,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Principios
+                </Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Precios</Link>
+                <Link
+                  onClick={() => {
+                    let element = document.getElementById("IdPrecioss"); // Replace with your element's ID
+                    let yCoordinate =
+                      element.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({
+                      top: yCoordinate,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Precios
+                </Link>
               </LinkListItem>
             </LinkList>
           </Column>
@@ -89,10 +173,38 @@ export default () => {
             <ColumnHeading>Opiniones</ColumnHeading>
             <LinkList>
               <LinkListItem>
-                <Link href="#">Testimonios</Link>
+                <Link
+                  onClick={() => {
+                    let element = document.getElementById("IdTestimonios"); // Replace with your element's ID
+                    let yCoordinate =
+                      element.getBoundingClientRect().top +
+                      window.scrollY -
+                      100;
+                    window.scrollTo({
+                      top: yCoordinate,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Testimonios
+                </Link>
               </LinkListItem>
               <LinkListItem>
-                <Link href="#">Preguntas</Link>
+                <Link
+                  onClick={() => {
+                    let element = document.getElementById("dudasSectionTitle"); // Replace with your element's ID
+                    let yCoordinate =
+                      element.getBoundingClientRect().top +
+                      window.scrollY -
+                      100;
+                    window.scrollTo({
+                      top: yCoordinate,
+                      behavior: "smooth",
+                    });
+                  }}
+                >
+                  Preguntas
+                </Link>
               </LinkListItem>
             </LinkList>
           </Column>
@@ -110,11 +222,11 @@ export default () => {
             <SocialLink href="https://facebook.com">
               <FacebookIcon />
             </SocialLink>
+            <SocialLink href="https://instagram.com">
+              <InstagramIcon />
+            </SocialLink>
             <SocialLink href="https://twitter.com">
               <TwitterIcon />
-            </SocialLink>
-            <SocialLink href="https://youtube.com">
-              <YoutubeIcon />
             </SocialLink>
           </SocialLinksContainer>
         </ThreeColRow>

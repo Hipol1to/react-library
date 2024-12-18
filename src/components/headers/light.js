@@ -30,6 +30,7 @@ export const NavLink = tw.a`
 `;
 
 export const PrimaryLink = tw(NavLink)`
+  cursor-pointer
   lg:mx-0
   px-8 py-3 rounded bg-primary-500 text-gray-100
   hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline
@@ -234,7 +235,9 @@ export default ({
   const handleModalClose = () => setModalOpen(false);
   const defaultLinks = [
     <NavLinks key={1}>
-      <NavLink href="/#">Inicio</NavLink>
+      <NavLink id="inicioNavOpton" href="/#">
+        Inicio
+      </NavLink>
       <NavLink
         onClick={() => {
           let element = document.getElementById("IdPrecioss"); // Replace with your element's ID

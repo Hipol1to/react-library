@@ -6,7 +6,7 @@ import { css } from "styled-components/macro"; //eslint-disable-line
 import LogoImage from "images/logo-light.svg";
 import { ReactComponent as FacebookIcon } from "images/facebook-icon.svg";
 import { ReactComponent as TwitterIcon } from "images/twitter-icon.svg";
-import { ReactComponent as YoutubeIcon } from "images/youtube-icon.svg";
+import { ReactComponent as InstagramIcon } from "images/instagram-icon.svg";
 
 const Container = tw.div`relative bg-gray-900 text-gray-100 -mx-8 -mb-8 px-8`;
 const Content = tw.div`max-w-screen-xl mx-auto pt-16 pb-8`;
@@ -62,7 +62,7 @@ export default () => {
                 <TwitterIcon />
               </SocialLink>
               <SocialLink href="https://youtube.com">
-                <YoutubeIcon />
+                <InstagramIcon />
               </SocialLink>
             </SocialLinksContainer>
           </CompanyColumn>
