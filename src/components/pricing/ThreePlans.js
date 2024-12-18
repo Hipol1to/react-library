@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import emailjs from "emailjs-com";
+import DatePicker from "react-datepicker"; // Ensure you have this package installed
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
@@ -214,56 +216,99 @@ export default ({
     );
   };
   const ContactModal = ({ isOpen, onClose }) => {
+    const [selectedDate, setSelectedDate] = useState(null);
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [meetingTitle, setMeetingTitle] = useState("");
     if (!isOpen) return null;
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      if (!fullName || !email || !meetingTitle || !selectedDate) {
+        alert("Por favor, complete todos los campos.");
+        return;
+      }
+
+      // Generate a unique Jitsi meeting link
+      const roomId = `${meetingTitle.replace(/\s+/g, "_")}_${Date.now()}`;
+      const meetingLink = `https://meet.jit.si/${roomId}`;
+
+      const templateParams = {
+        fullName,
+        email,
+        meetingTitle,
+        schedule: selectedDate.toLocaleString(),
+        meetingLink, // Include the Jitsi meeting link
+      };
+
+      emailjs
+        .send(
+          "service_8hklyms", // Replace with your EmailJS Service ID
+          "template_4sgk9c5", // Replace with your EmailJS Template ID
+          templateParams,
+          "Q_l2VfGe9wtyaytF7" // Replace with your Public Key
+        )
+        .then(
+          (response) => {
+            console.log("SUCCESS!", response.status, response.text);
+            alert("El correo ha sido enviado con los detalles de la reunión.");
+            onClose();
+          },
+          (err) => {
+            console.error("FAILED...", err);
+            alert("Ocurrió un error al enviar el correo.");
+          }
+        );
+    };
 
     return (
       <div
         css={tw`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50`}
       >
         <div css={tw`bg-white p-8 rounded-lg z-50 w-full max-w-3xl`}>
-          <form css={tw`space-y-4`}>
+          <form onSubmit={handleSubmit} css={tw`space-y-4`}>
+            <div>
+              <h2 css={tw`text-center mt-8 mb-2 text-xl font-bold`}>
+                Agenda una reunión para contactarnos.
+              </h2>
+              <p css={tw`text-center`}>
+                Te estaremos enviando un mensaje de correo electrónico con los
+                detalles.
+              </p>
+            </div>
+
             <div>
               <label
                 htmlFor="fullName"
                 css={tw`block text-sm font-medium mb-1`}
               >
-                Full Name
+                Nombre completo
               </label>
               <input
                 type="text"
                 id="fullName"
                 name="fullName"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
                 css={tw`w-full p-3 border border-gray-300 rounded`}
-                placeholder="Enter your full name"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="phoneNumber"
-                css={tw`block text-sm font-medium mb-1`}
-              >
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                id="phoneNumber"
-                name="phoneNumber"
-                css={tw`w-full p-3 border border-gray-300 rounded`}
-                placeholder="Enter your phone number"
+                placeholder="Escribe tu nombre completo"
+                required
               />
             </div>
 
             <div>
               <label htmlFor="email" css={tw`block text-sm font-medium mb-1`}>
-                Email
+                Correo electrónico
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 css={tw`w-full p-3 border border-gray-300 rounded`}
-                placeholder="Enter your email"
+                placeholder="Escribe tu correo electrónico"
+                required
               />
             </div>
 
@@ -272,39 +317,48 @@ export default ({
                 htmlFor="messageTitle"
                 css={tw`block text-sm font-medium mb-1`}
               >
-                Message Title
+                Título de reunión
               </label>
               <input
                 type="text"
                 id="messageTitle"
                 name="messageTitle"
+                value={meetingTitle}
+                onChange={(e) => setMeetingTitle(e.target.value)}
                 css={tw`w-full p-3 border border-gray-300 rounded`}
-                placeholder="Enter the message title"
+                placeholder="Escribe un título"
+                required
               />
             </div>
 
             <div>
-              <label htmlFor="message" css={tw`block text-sm font-medium mb-1`}>
-                Message
+              <label
+                htmlFor="schedule"
+                css={tw`block text-sm font-medium mb-1`}
+              >
+                Hora y fecha
               </label>
-              <textarea
-                id="message"
-                name="message"
+              <DatePicker
+                selected={selectedDate}
+                onChange={(date) => setSelectedDate(date)}
+                showTimeSelect
+                dateFormat="Pp"
                 css={tw`w-full p-3 border border-gray-300 rounded`}
-                placeholder="Enter your message"
-                rows="6"
-              ></textarea>
+                placeholderText="Selecciona hora y fecha"
+                required
+              />
             </div>
 
             <button
               type="submit"
               css={tw`w-full bg-blue-500 text-white py-3 rounded mt-4`}
             >
-              Send
+              Agendar
             </button>
           </form>
+
           <button onClick={onClose} css={tw`mt-4 text-blue-500`}>
-            Close
+            Cerrar
           </button>
         </div>
       </div>

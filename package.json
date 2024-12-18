@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
     "dotenv": "^10.0.0",
+    "emailjs-com": "^3.2.0",
     "express": "^4.17.1",
     "feather-icons": "^4.29.0",
     "framer-motion": "^7.3.2",

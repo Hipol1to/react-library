@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 import styled from "styled-components";
 import tw from "twin.macro";
 //eslint-disable-next-line
@@ -50,61 +51,98 @@ const CustomersLogoStrip = styled.div`
 export default ({ roundedHeaderButton }) => {
   const ContactModal = ({ isOpen, onClose }) => {
     const [selectedDate, setSelectedDate] = useState(null);
-
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [meetingTitle, setMeetingTitle] = useState("");
     if (!isOpen) return null;
+    const handleSubmit = (e) => {
+      e.preventDefault();
+
+      if (!fullName || !email || !meetingTitle || !selectedDate) {
+        alert("Por favor, complete todos los campos.");
+        return;
+      }
+
+      // Generate a unique Jitsi meeting link
+      const roomId = `${meetingTitle.replace(/\s+/g, "_")}_${Date.now()}`;
+      const meetingLink = `https://meet.jit.si/${roomId}`;
+
+      const templateParams = {
+        fullName,
+        email,
+        meetingTitle,
+        schedule: selectedDate.toLocaleString(),
+        meetingLink, // Include the Jitsi meeting link
+      };
+
+      emailjs
+        .send(
+          "service_8hklyms", // Replace with your EmailJS Service ID
+          "template_4sgk9c5", // Replace with your EmailJS Template ID
+          templateParams,
+          "Q_l2VfGe9wtyaytF7" // Replace with your Public Key
+        )
+        .then(
+          (response) => {
+            console.log("SUCCESS!", response.status, response.text);
+            alert("El correo ha sido enviado con los detalles de la reunión.");
+            onClose();
+          },
+          (err) => {
+            console.error("FAILED...", err);
+            alert("Ocurrió un error al enviar el correo.");
+          }
+        );
+    };
 
     return (
       <div
         css={tw`fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50`}
       >
         <div css={tw`bg-white p-8 rounded-lg z-50 w-full max-w-3xl`}>
-          <form css={tw`space-y-4`}>
+          <form onSubmit={handleSubmit} css={tw`space-y-4`}>
             <div>
-              <h2
-                style={{
-                  textAlign: "center",
-                  marginTop: "2rem",
-                  fontSize: "30px",
-                }}
-              >
-                Agenda una reunion para contactarnos.
+              <h2 css={tw`text-center mt-8 mb-2 text-xl font-bold`}>
+                Agenda una reunión para contactarnos.
               </h2>
-              <br />
-              <br />
+              <p css={tw`text-center`}>
+                Te estaremos enviando un mensaje de correo electrónico con los
+                detalles.
+              </p>
+            </div>
+
+            <div>
               <label
                 htmlFor="fullName"
                 css={tw`block text-sm font-medium mb-1`}
               >
-                Full Name
+                Nombre completo
               </label>
               <input
                 type="text"
                 id="fullName"
                 name="fullName"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
                 css={tw`w-full p-3 border border-gray-300 rounded`}
-                placeholder="Enter your full name"
+                placeholder="Escribe tu nombre completo"
+                required
               />
             </div>
 
             <div>
               <label htmlFor="email" css={tw`block text-sm font-medium mb-1`}>
-                Email
+                Correo electrónico
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 css={tw`w-full p-3 border border-gray-300 rounded`}
-                placeholder="Enter your email"
-                value={
-                  document.getElementById("sceduleEmailTextField").value ===
-                    null ||
-                  document.getElementById("sceduleEmailTextField").value ===
-                    undefined ||
-                  document.getElementById("sceduleEmailTextField").value === ""
-                    ? " "
-                    : document.getElementById("sceduleEmailTextField").value
-                }
+                placeholder="Escribe tu correo electrónico"
+                required
               />
             </div>
 
@@ -113,22 +151,26 @@ export default ({ roundedHeaderButton }) => {
                 htmlFor="messageTitle"
                 css={tw`block text-sm font-medium mb-1`}
               >
-                Message Title
+                Título de reunión
               </label>
               <input
                 type="text"
                 id="messageTitle"
                 name="messageTitle"
+                value={meetingTitle}
+                onChange={(e) => setMeetingTitle(e.target.value)}
                 css={tw`w-full p-3 border border-gray-300 rounded`}
-                placeholder="Enter the message title"
+                placeholder="Escribe un título"
+                required
               />
             </div>
+
             <div>
               <label
                 htmlFor="schedule"
                 css={tw`block text-sm font-medium mb-1`}
               >
-                Schedule a Meeting
+                Hora y fecha
               </label>
               <DatePicker
                 selected={selectedDate}
@@ -136,7 +178,8 @@ export default ({ roundedHeaderButton }) => {
                 showTimeSelect
                 dateFormat="Pp"
                 css={tw`w-full p-3 border border-gray-300 rounded`}
-                placeholderText="Select a date and time"
+                placeholderText="Selecciona hora y fecha"
+                required
               />
             </div>
 
@@ -144,11 +187,12 @@ export default ({ roundedHeaderButton }) => {
               type="submit"
               css={tw`w-full bg-blue-500 text-white py-3 rounded mt-4`}
             >
-              Schedule Meeting
+              Agendar
             </button>
           </form>
+
           <button onClick={onClose} css={tw`mt-4 text-blue-500`}>
-            Close
+            Cerrar
           </button>
         </div>
       </div>
